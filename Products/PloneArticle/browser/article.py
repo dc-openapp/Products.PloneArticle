@@ -34,8 +34,7 @@ def _getThumbUrl(image_url, width, height) :
     Return a thumb url 
     without image.getObject
     """
-    #return '%s/pa_thumb/imagex%ix%i.jpeg' %(image_url, width, height)
-    return '%s' %(image_url)
+    return '%s/pa_thumb/imagex%ix%i.jpeg' %(image_url, width, height)
     
 def _getImageInfo(image, pwidth, pheight, twidth, theight):
     """
