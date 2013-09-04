@@ -84,7 +84,7 @@ pamodel.paplayer = {
     showCurrentImage: function(link) {
         var href = link.href;
         var legend = link.title;
-        //jQuery('img#previewImg').attr('src', href);
+        jQuery('img#previewImg').attr('src', href);
         jQuery('img#previewImg').attr('alt', legend + ' (zoom)');
         jQuery('a.paplayerImages').each(function(i,link) {
             if (href.match(link.href)) {
