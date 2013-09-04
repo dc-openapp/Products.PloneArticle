@@ -57,6 +57,10 @@ class PloneArticleFactoryTypeInformation(DynamicViewTypeInformation):
         * attachmentMaxSize
         * imageMaxSize
         * previewAllowed
+        * maxPreviewImageWidth
+        * maxPreviewImageHeight
+        * maxThumbWidth
+        * maxThumbHeight
     """
 
     meta_type = fti_meta_type
@@ -98,6 +102,30 @@ class PloneArticleFactoryTypeInformation(DynamicViewTypeInformation):
             'label': 'Max size for image',
         },
         {
+            'id': 'maxPreviewImageWidth',
+            'type': 'int',
+            'mode': 'w',
+            'label': 'Max preview image width',
+        },
+        {
+            'id': 'maxPreviewImageHeight',
+            'type': 'int',
+            'mode': 'w',
+            'label': 'Max preview image height',
+        },
+        {
+            'id': 'maxThumbWidth',
+            'type': 'int',
+            'mode': 'w',
+            'label': 'Max thumb image width',
+        },
+        {
+            'id': 'maxThumbHeight',
+            'type': 'int',
+            'mode': 'w',
+            'label': 'Max thumb image height',
+        },
+        {
             'id': 'previewAllowed',
             'type': 'boolean',
             'mode': 'w',
@@ -111,6 +139,10 @@ class PloneArticleFactoryTypeInformation(DynamicViewTypeInformation):
     referenceableLinkType = []
     attachmentMaxSize = 3 * 2 ** 20
     imageMaxSize = 3 * 2 ** 20
+    maxPreviewImageWidth = 300
+    maxPreviewImageHeight = 200
+    maxThumbWidth = 40
+    maxThumbHeight = 40
     previewAllowed = True
 
     def manage_afterAdd(self, item, container):
@@ -135,6 +167,10 @@ class PloneArticleFactoryTypeInformation(DynamicViewTypeInformation):
         self.attachmentMaxSize = getattr(self, 'attachmentMaxSize', 3 * 2 ** 20)
         self.imageMaxSize = getattr(self, 'imageMaxSize', 3 * 2 ** 20)
         self.previewAllowed = getattr(self, 'previewAllowed', True)
+        self.maxPreviewImageWidth = getattr(self, 'maxPreviewImageWidth', 300)
+        self.maxPreviewImageHeight = getattr(self, 'maxPreviewImageHeight', 200)
+        self.maxThumbWidth = getattr(self, 'maxThumbWidth', 40)
+        self.maxThumbHeight = getattr(self, 'maxThumbHeight', 40)
 
     def getAvailableReferenceableAttachmentTypes(self):
         return utils.getAllAvailableReferenceableTypes(self, FileInnerContentProxy)

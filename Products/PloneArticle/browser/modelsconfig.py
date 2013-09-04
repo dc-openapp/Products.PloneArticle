@@ -39,6 +39,8 @@ VERTICALCONTROLSPOSITION = 'right'
 # others styles
 # SET DISABLESTYLES to True if you prefer to redefine these styles through css
 DISABLESTYLES = False
+#set USEPREFERENCESMAXWIDTHHEIGHT to False if you dont want to use preferences
+USEPREFERENCESMAXWIDTHHEIGHT = True
 FLOAT = 'right'
 BORDERCOLOR = '#DDDCCC'
 BGCOLOR = '#F6F6F6'

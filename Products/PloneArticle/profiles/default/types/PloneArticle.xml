@@ -36,6 +36,10 @@
  <property name="attachmentMaxSize">3145728</property>
  <property name="imageMaxSize">3145728</property>
  <property name="previewAllowed">True</property>
+ <property name="maxPreviewImageWidth">300</property>
+ <property name="maxPreviewImageHeight">200</property>
+ <property name="maxThumbWidth">40</property>
+ <property name="maxThumbHeight">40</property>
  <alias from="(Default)" to="(selected layout)"/>
  <alias from="display" to="pa_select_model"/>
  <alias from="edit" to="base_edit"/>

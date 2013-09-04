@@ -35,7 +35,11 @@
         <fieldset tal:repeat="ptype article_types">
           <tal:def define="available_contents ptype/getAvailableReferenceableImageTypes;
                            selected_contents ptype/referenceableImageType;
-                           maxSize ptype/imageMaxSize;">
+                           maxSize ptype/imageMaxSize;
+                           maxPreviewImageWidth ptype/maxPreviewImageWidth;
+                           maxPreviewImageHeight ptype/maxPreviewImageHeight;
+                           maxThumbWidth ptype/maxThumbWidth;
+                           maxThumbHeight ptype/maxThumbHeight;">
             <legend tal:content="string:${ptype/title} (${ptype/id})">Type (portal_type)</legend>
 
             <div class="field"
@@ -73,6 +77,63 @@
 
               <input type="text" tal:attributes="id id; name id; value maxSize;" />
             </div>
+
+            <div class="field"
+                 tal:define="id string:maxPreviewImageWidth.${ptype/id}:record:int;">
+
+              <label tal:attributes="for id;" i18n:translate="label_images_maxPreviewImageWidth">
+                Maximum preview image width.
+              </label>
+
+              <div class="formHelp" i18n:translate="help_images_maxPreviewImageWidth">
+                Maximum preview image width.
+              </div>
+
+              <input type="text" tal:attributes="id id; name id; value maxPreviewImageWidth;" />
+            </div>
+
+            <div class="field"
+                 tal:define="id string:maxPreviewImageHeight.${ptype/id}:record:int;">
+
+              <label tal:attributes="for id;" i18n:translate="label_images_maxPreviewImageHeight">
+                Maximum preview image height.
+              </label>
+
+              <div class="formHelp" i18n:translate="help_images_maxPreviewImageHeight">
+                Maximum preview image height.
+              </div>
+
+              <input type="text" tal:attributes="id id; name id; value maxPreviewImageHeight;" />
+            </div>
+
+            <div class="field"
+                 tal:define="id string:maxThumbWidth.${ptype/id}:record:int;">
+
+              <label tal:attributes="for id;" i18n:translate="label_images_maxThumbWidth">
+                Maximum thumb image width.
+              </label>
+
+              <div class="formHelp" i18n:translate="help_images_maxThumbWidth">
+                Maximum thumb image width.
+              </div>
+
+              <input type="text" tal:attributes="id id; name id; value maxThumbWidth;" />
+            </div>
+
+            <div class="field"
+                 tal:define="id string:maxThumbHeight.${ptype/id}:record:int;">
+
+              <label tal:attributes="for id;" i18n:translate="label_images_maxThumbHeight">
+                Maximum thumb image height.
+              </label>
+
+              <div class="formHelp" i18n:translate="help_images_maxThumbHeight">
+                Maximum thumb image height.
+              </div>
+
+              <input type="text" tal:attributes="id id; name id; value maxThumbHeight;" />
+            </div>
+
           </tal:def>
         </fieldset>
 

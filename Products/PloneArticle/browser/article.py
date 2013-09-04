@@ -26,12 +26,16 @@ from zope.interface import implements
 from Products.Five import BrowserView
 import modelsconfig
 
+from Products.CMFCore.utils import getToolByName
+from Products.PloneArticle.interfaces import IPloneArticle
+
 def _getThumbUrl(image_url, width, height) :
     """
     Return a thumb url 
     without image.getObject
     """
-    return '%s/pa_thumb/imagex%ix%i.jpeg' %(image_url, width, height)
+    #return '%s/pa_thumb/imagex%ix%i.jpeg' %(image_url, width, height)
+    return '%s' %(image_url)
     
 def _getImageInfo(image, pwidth, pheight, twidth, theight):
     """
@@ -399,11 +403,25 @@ class PloneArticleModel11View(PloneArticleModelView):
     def __init__(self, context, request):
         super(PloneArticleModelView, self).__init__(context, request)
         self.images = context.getImages()
-        self.maxwidth = modelsconfig.MAXWIDTH
-        self.maxheight = modelsconfig.MAXHEIGHT    
-        self.thumbmaxwidth = modelsconfig.THUMBMAXWIDTH
-        self.thumbmaxheight = modelsconfig.THUMBMAXHEIGHT     
-        self.disablestyles = modelsconfig.DISABLESTYLES   
+        if modelsconfig.USEPREFERENCESMAXWIDTHHEIGHT:
+            try:
+                at = getToolByName(self, 'archetype_tool')
+                article_types = at.listPortalTypesWithInterfaces((IPloneArticle,))[0]
+                self.maxwidth = article_types.maxPreviewImageWidth
+                self.maxheight = article_types.maxPreviewImageHeight
+                self.thumbmaxwidth = article_types.maxThumbWidth
+                self.thumbmaxheight = article_types.maxThumbHeight
+            except:
+                self.maxwidth = modelsconfig.MAXWIDTH
+                self.maxheight = modelsconfig.MAXHEIGHT
+                self.thumbmaxwidth = modelsconfig.THUMBMAXWIDTH
+                self.thumbmaxheight = modelsconfig.THUMBMAXHEIGHT     
+        else:
+            self.maxwidth = modelsconfig.MAXWIDTH
+            self.maxheight = modelsconfig.MAXHEIGHT    
+            self.thumbmaxwidth = modelsconfig.THUMBMAXWIDTH
+            self.thumbmaxheight = modelsconfig.THUMBMAXHEIGHT     
+        self.disablestyles = modelsconfig.DISABLESTYLES
         self.float = modelsconfig.FLOAT      
         self.bgcolor = modelsconfig.BGCOLOR      
         self.bordercolor = modelsconfig.BORDERCOLOR 
