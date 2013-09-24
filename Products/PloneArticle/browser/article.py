@@ -59,7 +59,9 @@ from interface import IPloneArticleModelView, IPloneArticleModel1View, \
      IPloneArticleModel8View, \
      IPloneArticleModel9View, \
      IPloneArticleModel10View, \
-     IPloneArticleModel11View
+     IPloneArticleModel11View, \
+     IPloneArticleModel12View, \
+     IPloneArticleModel13View
 
 from Products.PloneArticle.interfaces import IFileInnerContentProxy, \
     IImageInnerContentProxy
@@ -491,3 +493,32 @@ class PloneArticleModel11View(PloneArticleModelView):
 
     
 registerArticleModel(PloneArticleModel11View)
+
+class PloneArticleModel12View(PloneArticleModel11View):
+    """
+    Ajax viewer for images
+    """
+    implements(IPloneArticleModel12View)
+
+    template_id = 'pa_model12'
+    title = u'Ajax slide viewer 2'
+    title_msgid = 'model12_title'
+    description_msgid = 'model11_description'
+    icon = 'pa_model11.gif'
+
+registerArticleModel(PloneArticleModel12View)
+
+
+class PloneArticleModel13View(PloneArticleModel11View):
+    """
+    Ajax viewer for images
+    """
+    implements(IPloneArticleModel13View)
+
+    template_id = 'pa_model13'
+    title = u'Ajax slide viewer 3'
+    title_msgid = 'model13_title'
+    description_msgid = 'model11_description'
+    icon = 'pa_model11.gif'
+
+registerArticleModel(PloneArticleModel13View)

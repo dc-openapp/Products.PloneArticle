@@ -28,6 +28,8 @@
   <element value="pa_model9"/>
   <element value="pa_model10"/>
   <element value="pa_model11"/>
+  <element value="pa_model12"/>
+  <element value="pa_model13"/>
  </property>
  <property name="default_view_fallback">False</property>
  <property name="referenceableAttachmentType"/>

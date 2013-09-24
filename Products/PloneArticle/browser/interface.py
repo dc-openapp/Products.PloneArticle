@@ -185,3 +185,31 @@ class IPloneArticleModel11View(Interface):
 
     def getPlayerFirstImage(self):
         pass    
+
+        
+class IPloneArticleModel12View(Interface):
+    """View for article model 11"""
+
+
+    def getPlayerImages(self):
+        pass
+
+    def getPlayerStyle(self):
+        pass    
+
+    def getPlayerFirstImage(self):
+        pass    
+
+        
+class IPloneArticleModel13View(Interface):
+    """View for article model 11"""
+
+
+    def getPlayerImages(self):
+        pass
+
+    def getPlayerStyle(self):
+        pass    
+
+    def getPlayerFirstImage(self):
+        pass    

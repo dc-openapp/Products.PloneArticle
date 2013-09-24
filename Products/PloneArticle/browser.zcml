@@ -158,5 +158,24 @@ No longer needed for Plone 4
       allowed_interface=".browser.interface.IPloneArticleModelView
                          .browser.interface.IPloneArticleModel11View"
       />          
+      
+  <browser:page
+      for=".interfaces.IPloneArticle"
+      name="pa_model12_view"
+      class=".browser.article.PloneArticleModel11View"
+      permission="zope.Public"
+      allowed_interface=".browser.interface.IPloneArticleModelView
+                         .browser.interface.IPloneArticleModel12View"
+      />          
+
+      
+  <browser:page
+      for=".interfaces.IPloneArticle"
+      name="pa_model13_view"
+      class=".browser.article.PloneArticleModel11View"
+      permission="zope.Public"
+      allowed_interface=".browser.interface.IPloneArticleModelView
+                         .browser.interface.IPloneArticleModel13View"
+      />          
 
 </configure>
